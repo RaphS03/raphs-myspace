@@ -1,42 +1,57 @@
 # Progress
 
 ## What Works
-- Project scaffolded and repo initialized on GitHub
-- Next.js 16 App Router with all route stubs in place:
-  - `/` (Home)
-  - `/projects` (Projects list)
-  - `/projects/[slug]` (Project detail)
-  - `/resume` (Resume)
-  - `/contact` (Contact)
-- Tailwind CSS v4 configured with light/dark theme tokens
-- shadcn/ui initialized (`components.json`, CSS variables, `cn()` utility)
-- Developer tooling: ESLint, Prettier (with Tailwind plugin), TypeScript
-- pnpm workspace configured
-- Memory Bank initialized
+
+- Next.js 16 project scaffolded with App Router, TypeScript, Tailwind CSS v4, shadcn/ui
+- Pages: Home (`/`), Projects (`/projects`), Project Detail (`/projects/[slug]`), Resume (`/resume`), Contact (`/contact`)
+- Project data structure defined in `src/data/projects.ts`
+- Prettier configured with Tailwind plugin
+- shadcn/ui initialized (components.json, cn utility)
+- ESLint configured
+- pnpm workspace set up
+- **Copilot agent system fully built** (7 agents, 15 skills, 2 READMEs, copilot-instructions)
 
 ## What's Left to Build
-- [ ] Shared layout: header/navigation bar + footer
-- [ ] Home page: hero section, intro text, call-to-action links
-- [ ] Projects page: project card grid, filtering by tags
-- [ ] Project detail page: full project write-up with links
-- [ ] Resume page: experience, education, skills sections
-- [ ] Contact page: contact method (form or links)
-- [ ] Dark mode toggle component
-- [ ] Responsive design polish
-- [ ] Project data population (`src/data/projects.ts`)
-- [ ] SEO metadata for each page
-- [ ] Favicon and Open Graph images
-- [ ] Deployment setup (Vercel or similar)
+
+### Website Features (needs SDDs)
+- Hero section on home page
+- Navigation header with mobile menu
+- Footer with social links
+- Project cards for the projects page
+- Project detail page content and layout
+- Resume page content (experience, education, skills)
+- Contact page with form or contact info
+- Dark mode toggle
+- SEO metadata on all pages
+- Responsive design across all pages
+
+### Agent System Improvements (via Agent Architect)
+- Iterate on agent definitions based on real usage
+- Add new skills as patterns emerge from development
+- Possibly add new specialist agents (e.g., Animation/Motion, Testing)
 
 ## Current Status
-**Phase: Scaffolding Complete, Implementation Not Started**
 
-All pages exist as empty placeholder components with just an `<h1>` tag. No visual design, styling, layout components, or content has been implemented yet. The infrastructure (routing, theming, tooling) is solid and ready for UI development.
+The project has a complete development infrastructure:
+1. Code scaffolding (Next.js, Tailwind, shadcn/ui, TypeScript)
+2. Copilot agent system (agents, skills, workflows, templates)
+3. SDD workflow ready (write SDD -> review -> hand to coordinator -> build)
+
+**Next action**: Use the SDD Writer to plan the first feature (hero section or navigation recommended).
 
 ## Known Issues
-- `globals.css` has duplicate theme variable definitions (HSL in `@layer base` + OKLCH in `:root`) -- may need cleanup
-- No `src/components/ui/` components have been added from shadcn/ui yet (directory has only `.gitkeep`)
-- `tailwind.config.ts` uses `require("tailwindcss-animate")` which is the v3 plugin syntax -- may conflict with v4's `@plugin` directive already in `globals.css`
 
-## Evolution of Project Decisions
-- **2026-02-28**: Project created with Next.js 16 + Tailwind v4 + shadcn/ui stack. Route structure established. Memory Bank initialized. Raph indicated preference for iterative design decisions -- will decide specifics (projects, resume content, design details, additional pages) as the site is built.
+- All pages have placeholder content only
+- No deployed version yet
+- Em-dash unicode characters trigger markdown linter warnings (cosmetic, not functional)
+
+## Architecture Decisions
+
+| Decision | Rationale |
+|----------|-----------|
+| Hierarchical agent system | Separation of concerns: each agent has a focused domain |
+| SDD-first workflow | Forces thorough design before implementation |
+| Markdown + YAML frontmatter for agents | Human-readable, version-controlled, easy to edit |
+| 3 mandatory skills for all agents | Ensures consistent project knowledge and standards |
+| Skills separate from agents | Reusable knowledge across multiple agents |
+| docs/sdd/ for SDD storage | Central location, version-controlled with the project |
